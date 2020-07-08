@@ -78,6 +78,6 @@ use_http_expect = False
 use_https = True
 use_mime_magic = True
 verbosity = WARNING
-website_endpoint = ${S3_WEBSITE_ENDPOINT}
+website_endpoint =
 website_error =
 website_index = index.html

@@ -59,3 +59,4 @@ services:
       S3_WEBSITE_ENDPOINT:
     volumes:
       - "${MOUNT_DATA}:/data:ro"
+    restart: unless-stopped
