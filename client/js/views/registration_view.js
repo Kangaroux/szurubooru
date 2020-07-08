@@ -16,18 +16,27 @@ class RegistrationView extends events.EventTarget {
             template({
                 userNamePattern: api.getUserNameRegex(),
                 passwordPattern: api.getPasswordRegex(),
+                enableRecaptcha: api.recaptchaEnabled(),
             })
         );
         views.syncScrollPosition();
         views.decorateValidator(this._formNode);
         this._formNode.addEventListener("submit", (e) => this._evtSubmit(e));
-        this.renderRecaptcha();
+        this.setRecaptchaToken = this.setRecaptchaToken.bind(this);
+
+        if (api.recaptchaEnabled())
+            this.renderRecaptcha();
     }
 
     renderRecaptcha() {
         grecaptcha.render(this._recaptchaNode, {
-            "sitekey": RECAPTCHA_SITE_KEY
+            "callback": this.setRecaptchaToken,
+            "sitekey": api.getRecaptchaSiteKey(),
         });
+    }
+
+    setRecaptchaToken(token) {
+        this.recaptchaToken = token;
     }
 
     clearMessages() {
@@ -54,6 +63,7 @@ class RegistrationView extends events.EventTarget {
                     name: this._userNameFieldNode.value,
                     password: this._passwordFieldNode.value,
                     email: this._emailFieldNode.value,
+                    recaptchaToken: this.recaptchaToken,
                 },
             })
         );
