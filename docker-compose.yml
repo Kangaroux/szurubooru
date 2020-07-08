@@ -17,6 +17,7 @@ services:
       ## Credentials for database:
       POSTGRES_USER:
       POSTGRES_PASSWORD:
+      DATA_URL:
       ## Commented Values are Default:
       #POSTGRES_DB: defaults to same as POSTGRES_USER
       #POSTGRES_PORT: 5432
