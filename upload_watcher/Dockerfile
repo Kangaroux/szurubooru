@@ -10,4 +10,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ./start.sh
+CMD ./tasks.sh init && ./tasks.sh watch
