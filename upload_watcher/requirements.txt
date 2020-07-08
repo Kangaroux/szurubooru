@@ -1,0 +1,11 @@
+chardet==3.0.4
+docutils==0.16
+fs-watcher==1.0.10
+future==0.18.2
+lockfile==0.12.2
+pyinotify==0.9.6
+python-daemon==2.2.4
+python-dateutil==2.8.1
+python-magic==0.4.18
+s3cmd==2.1.0
+six==1.15.0
