@@ -23,7 +23,7 @@ case "$1" in
         ;;
 
     sync)
-        s3cmd sync --exclude=temporary-uploads /data/ s3://${S3_BUCKET}
+        s3cmd sync -P --exclude=temporary-uploads /data/ s3://${S3_BUCKET}
         ;;
 
     watch)
